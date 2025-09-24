@@ -1,11 +1,13 @@
 #include<stdio.h>
 
-const struct Books{
+struct Books{
     int _id;
     char title[200];
     char author[200];
     int availability;
 };
+
+void addBook();
 
 int main() {
 
@@ -21,6 +23,7 @@ int main() {
             break;
         case 1:
             printf("You have selected Add Books");
+            addBook();
             break;
         case 2:
             printf("You have selected List books");
@@ -38,5 +41,20 @@ int main() {
 
 void addBook() {
     
-}
+    struct Books book;
+    
+    getchar();
 
+    printf("\nplease enter the title of the book\n");
+    fgets(book.title, sizeof(book.title), stdin);
+
+    printf("\nplease enter the author's name\n");
+    fgets(book.author, sizeof(book.author), stdin);
+
+    printf("\nplease enter the stock count\n");
+    scanf("%d", &book.availability);
+
+    printf("Title: %s", book.title);
+    printf("Author: %s", book.author);
+    printf("Stock: %d\n", book.availability);
+}
